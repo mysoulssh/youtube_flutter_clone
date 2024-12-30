@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:video_streaming/app/utils/uiutils.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
 
   final count = 0.obs;
-  final windowWidth = Get.width.obs;
+  final deviceType = DeviceSizeType.pc.obs;
 
   @override
   void onInit() {
@@ -15,11 +15,6 @@ class HomeController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      print(Get.width);
-      windowWidth.value = Get.width;
-    });
   }
 
   @override
