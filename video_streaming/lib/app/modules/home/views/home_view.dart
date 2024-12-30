@@ -68,6 +68,12 @@ class _HomeStateViewState extends State<HomeStateView>
             ],
           ),
         ),
+        title: Container(
+          clipBehavior: Clip.hardEdge,
+          child: TextField(
+            decoration: InputDecoration(),
+          ),
+        ),
       ),
       body: Row(
         children: [
