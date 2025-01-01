@@ -24,8 +24,7 @@ class HomeStateView extends StatefulWidget {
   State<HomeStateView> createState() => _HomeStateViewState();
 }
 
-class _HomeStateViewState extends State<HomeStateView>
-    with WidgetsBindingObserver {
+class _HomeStateViewState extends State<HomeStateView> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
@@ -60,19 +59,33 @@ class _HomeStateViewState extends State<HomeStateView>
                 color: Theme.of(context).primaryColor,
                 size: 60.spMin,
               ),
-              Text("Logo",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium
-                      ?.copyWith(fontWeight: FontWeight.bold))
+              Text("Logo", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold))
             ],
           ),
         ),
-        title: Container(
-          clipBehavior: Clip.hardEdge,
-          child: TextField(
-            decoration: InputDecoration(),
-          ),
+        title: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.grey.shade100,
+                ),
+              ),
+            ),
+            FilledButton(
+                onPressed: () {},
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 8.sp),
+                  color: Colors.red,
+                  alignment: Alignment.center,
+                  child: Icon(
+                    Icons.search,
+                    size: 16,
+                    color: Colors.white,
+                  ),
+                ))
+          ],
         ),
       ),
       body: Row(
@@ -81,8 +94,7 @@ class _HomeStateViewState extends State<HomeStateView>
             () {
               if (widget.controller.deviceType.value == DeviceSizeType.phone) {
                 return Container();
-              } else if (widget.controller.deviceType.value ==
-                  DeviceSizeType.pad) {
+              } else if (widget.controller.deviceType.value == DeviceSizeType.pad) {
                 return Container(
                   width: 96,
                   color: Colors.grey.shade800,
