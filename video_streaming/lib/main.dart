@@ -29,10 +29,19 @@ class _MyAppState extends State<MyApp> {
         initialRoute: AppPages.INITIAL,
         getPages: AppPages.routes,
         theme: ThemeData(
-          textTheme: GoogleFonts.poppinsTextTheme(),
+          scaffoldBackgroundColor: Colors.white,
+          bottomAppBarTheme: BottomAppBarTheme(
+            shadowColor: Colors.red,
+          ),
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              enableFeedback: false,
+              selectedItemColor: Colors.white,
+              unselectedItemColor: Colors.white70,
+              backgroundColor: Color(0xff111111)),
+          textTheme: GoogleFonts.robotoTextTheme(),
         ),
         darkTheme: ThemeData(
-          textTheme: GoogleFonts.poppinsTextTheme(),
+          textTheme: GoogleFonts.robotoTextTheme(),
         ));
   }
 }

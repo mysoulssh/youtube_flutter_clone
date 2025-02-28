@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:video_streaming/app/utils/helpers.dart';
-import 'package:video_streaming/app/utils/uiutils.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -24,7 +22,10 @@ class HomeStateView extends StatefulWidget {
   State<HomeStateView> createState() => _HomeStateViewState();
 }
 
-class _HomeStateViewState extends State<HomeStateView> with WidgetsBindingObserver {
+class _HomeStateViewState extends State<HomeStateView>
+    with WidgetsBindingObserver {
+  int currentIndex = 0;
+
   @override
   void initState() {
     super.initState();
@@ -35,83 +36,103 @@ class _HomeStateViewState extends State<HomeStateView> with WidgetsBindingObserv
   @override
   void didChangeMetrics() {
     super.didChangeMetrics();
-
-    final type = Helpers.getDeviceType(Get.width);
-    if (type != widget.controller.deviceType.value) {
-      widget.controller.deviceType.value = type;
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.grey.shade300,
-        centerTitle: true,
-        leadingWidth: 40.r + 60.spMin + 80.sp,
-        leading: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20).r,
-          child: Row(
-            children: [
-              Icon(
-                Icons.logo_dev,
-                color: Theme.of(context).primaryColor,
-                size: 60.spMin,
-              ),
-              Text("Logo", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold))
-            ],
-          ),
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          splashFactory: CustomInkRippleFactory(rippleRadius: 30),
         ),
-        title: Row(
-          children: [
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.grey.shade100,
-                ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          selectedFontSize: 14,
+          unselectedFontSize: 14,
+          currentIndex: currentIndex,
+          onTap: (value) {
+            // Respond to item press.
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: SvgPicture.asset(
+                'assets/images/home_unselected.svg',
+              ),
+              activeIcon: SvgPicture.asset(
+                'assets/images/home_selected.svg',
+                colorFilter: ColorFilter.mode(Colors.red, BlendMode.srcIn),
               ),
             ),
-            FilledButton(
-                onPressed: () {},
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 8.sp),
-                  color: Colors.red,
-                  alignment: Alignment.center,
-                  child: Icon(
-                    Icons.search,
-                    size: 16,
-                    color: Colors.white,
-                  ),
-                ))
+            BottomNavigationBarItem(
+              label: "Short",
+              icon: SvgPicture.asset(
+                'assets/images/short_unselected.svg',
+              ),
+              activeIcon: SvgPicture.asset(
+                'assets/images/short_selected.svg',
+                colorFilter: ColorFilter.mode(Colors.red, BlendMode.srcIn),
+              ),
+            ),
+            BottomNavigationBarItem(
+                label: "Search", icon: Icon(Icons.favorite)),
+            BottomNavigationBarItem(label: "Subs", icon: Icon(Icons.book)),
+            BottomNavigationBarItem(
+                label: "Library", icon: Icon(Icons.library_music))
           ],
         ),
       ),
-      body: Row(
-        children: [
-          Obx(
-            () {
-              if (widget.controller.deviceType.value == DeviceSizeType.phone) {
-                return Container();
-              } else if (widget.controller.deviceType.value == DeviceSizeType.pad) {
-                return Container(
-                  width: 96,
-                  color: Colors.grey.shade800,
-                );
-              }
-              return Container(
-                width: 240,
-                color: Colors.grey.shade400,
-              );
-            },
-          ),
-          Expanded(
-              child: Container(
-            color: Colors.grey.shade600,
-          ))
-        ],
-      ),
+    );
+  }
+}
+
+class CustomInkRipple extends InkRipple {
+  CustomInkRipple({
+    required super.controller,
+    required super.referenceBox,
+    required super.position,
+    required super.color,
+    required super.textDirection,
+    super.containedInkWell,
+    super.rectCallback,
+    super.borderRadius,
+    super.customBorder,
+    super.radius, // 自定义水波纹半径
+  });
+}
+
+class CustomInkRippleFactory extends InteractiveInkFeatureFactory {
+  final double rippleRadius; // 动态调整水波纹大小
+
+  const CustomInkRippleFactory({this.rippleRadius = 20});
+
+  @override
+  InteractiveInkFeature create(
+      {required MaterialInkController controller,
+      required RenderBox referenceBox,
+      required Offset position,
+      required Color color,
+      required TextDirection textDirection,
+      bool containedInkWell = false,
+      RectCallback? rectCallback,
+      BorderRadius? borderRadius,
+      ShapeBorder? customBorder,
+      double? radius,
+      VoidCallback? onRemoved}) {
+    return CustomInkRipple(
+      controller: controller,
+      referenceBox: referenceBox,
+      position: position,
+      color: color,
+      textDirection: textDirection,
+      containedInkWell: containedInkWell,
+      rectCallback: rectCallback,
+      borderRadius: borderRadius,
+      customBorder: customBorder,
+      radius: radius ?? rippleRadius, // 使用传入的水波纹大小
     );
   }
 }

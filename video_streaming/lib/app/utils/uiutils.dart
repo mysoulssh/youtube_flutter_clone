@@ -1,3 +1,3 @@
-enum DeviceSizeType { phone, pad, pc }
+enum DeviceSizeType { phone, table, web }
 
 class UIUtils {}
