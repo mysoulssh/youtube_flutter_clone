@@ -9,10 +9,6 @@ class TabHomeView extends GetView<TabHomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('TabHomeView'),
-        centerTitle: true,
-      ),
       body: const Center(
         child: Text(
           'TabHomeView is working',

@@ -12,8 +12,6 @@ import '../modules/tab_shorts/bindings/tab_shorts_binding.dart';
 import '../modules/tab_shorts/views/tab_shorts_view.dart';
 import '../modules/tab_subs/bindings/tab_subs_binding.dart';
 import '../modules/tab_subs/views/tab_subs_view.dart';
-import '../modules/top_navigator/bindings/top_navigator_binding.dart';
-import '../modules/top_navigator/views/top_navigator_view.dart';
 
 part 'app_routes.dart';
 
@@ -33,7 +31,6 @@ class AppPages {
         TabSearchBinding(),
         TabSubsBinding(),
         TabLibraryBinding(),
-        TopNavigatorBinding(),
       ],
     ),
     GetPage(
@@ -60,11 +57,6 @@ class AppPages {
       name: _Paths.TAB_LIBRARY,
       page: () => const TabLibraryView(),
       binding: TabLibraryBinding(),
-    ),
-    GetPage(
-      name: _Paths.TOP_NAVIGATOR,
-      page: () => const TopNavigatorView(),
-      binding: TopNavigatorBinding(),
     ),
   ];
 }
