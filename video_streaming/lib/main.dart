@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:video_streaming/app/utils/themes.dart';
+import 'package:video_streaming/generated/locales.g.dart';
 
 import 'app/routes/app_pages.dart';
 
@@ -21,27 +22,24 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
 
     return GetMaterialApp(
-        title: "Application",
-        initialRoute: AppPages.INITIAL,
-        getPages: AppPages.routes,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          bottomAppBarTheme: BottomAppBarTheme(
-            shadowColor: Colors.red,
-          ),
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
-              enableFeedback: false,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.white70,
-              backgroundColor: Color(0xff111111)),
-          textTheme: GoogleFonts.robotoTextTheme(),
-        ),
-        darkTheme: ThemeData(
-          textTheme: GoogleFonts.robotoTextTheme(),
-        ));
+      title: "Application",
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+      // themeMode: ThemeMode.dark,
+      theme: VSThemes.theme(),
+      darkTheme: VSThemes.darkTheme(),
+      translationsKeys: AppTranslation.translations,
+      locale: Locale("en", "US"),
+      fallbackLocale: Locale("en", "US"),
+    );
   }
 }
