@@ -4,6 +4,8 @@ class TabHomeController extends GetxController {
   //TODO: Implement TabHomeController
 
   final count = 0.obs;
+  final rxcategoryIndex = 1.obs;
+
   @override
   void onInit() {
     super.onInit();

@@ -1,6 +1,23 @@
 import 'dart:math';
 
 class Assets {
+  static final testCategories = [
+    "All",
+    "Subscriptions",
+    "Posts",
+    "Music",
+    "Tech",
+    "Design",
+    "Live",
+    "Playlist",
+    "Cats",
+    "Electronics",
+    "New Creators",
+    "Art",
+    "Tech News",
+    "Lofi beats"
+  ];
+
   static final testAvatars = [
     "https://tse4-mm.cn.bing.net/th/id/OIP-C.TNV6OT1FkyfbD90eoL_BEQHaIw?w=166&h=197&c=7&r=0&o=5&dpr=2&pid=1.7",
     "https://tse3-mm.cn.bing.net/th/id/OIP-C.AR9s5FI3fVfuUiLHAH--yAHaHa?w=197&h=197&c=7&r=0&o=5&dpr=2&pid=1.7",
@@ -38,4 +55,6 @@ class Assets {
   static final appbarNotifyEnable = "assets/images/appbar_notify_enable.svg";
   static final appbarLogo = "assets/images/appbar_logo.svg";
   static final appbarYoutube = "assets/images/appbar_youtube.svg";
+
+  static final homeFilter = "assets/images/home_filter.svg";
 }
