@@ -10,7 +10,6 @@ import 'package:video_streaming/app/modules/tab_search/views/tab_search_view.dar
 import 'package:video_streaming/app/modules/tab_shorts/views/tab_shorts_view.dart';
 import 'package:video_streaming/app/modules/tab_subs/views/tab_subs_view.dart';
 import 'package:video_streaming/app/utils/assets.dart';
-import 'package:video_streaming/app/widgets/custom_ink_ripple_factory.dart';
 import 'package:video_streaming/generated/locales.g.dart';
 
 import '../controllers/home_controller.dart';
@@ -21,7 +20,8 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        appBar: controller.rxcurrentIndex.value == 1 ? null : topNavigatorView(),
+        appBar:
+            controller.rxcurrentIndex.value == 1 ? null : topNavigatorView(),
         body: tabBody(context),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
@@ -39,11 +39,16 @@ class HomeView extends GetView<HomeController> {
                 controller.tabController.index = value;
               },
               items: [
-                navigationBarItem(Assets.homeUnselected, Assets.homeSelected, LocaleKeys.tabHome.tr),
-                navigationBarItem(Assets.shortUnselected, Assets.shortSelected, LocaleKeys.tabShorts.tr),
-                navigationBarItem(Assets.tabSearch, Assets.tabSearch, LocaleKeys.tabSearch.tr),
-                navigationBarItem(Assets.subsUnselected, Assets.subsSelected, LocaleKeys.tabSubs.tr),
-                navigationBarItem(Assets.libraryUnselected, Assets.librarySelected, LocaleKeys.tabLibrary.tr)
+                navigationBarItem(Assets.homeUnselected, Assets.homeSelected,
+                    LocaleKeys.tabHome.tr),
+                navigationBarItem(Assets.shortUnselected, Assets.shortSelected,
+                    LocaleKeys.tabShorts.tr),
+                navigationBarItem(Assets.tabSearch, Assets.tabSearch,
+                    LocaleKeys.tabSearch.tr),
+                navigationBarItem(Assets.subsUnselected, Assets.subsSelected,
+                    LocaleKeys.tabSubs.tr),
+                navigationBarItem(Assets.libraryUnselected,
+                    Assets.librarySelected, LocaleKeys.tabLibrary.tr)
               ],
             ),
           ),
@@ -54,18 +59,25 @@ class HomeView extends GetView<HomeController> {
 }
 
 extension HomeWidgets on HomeView {
-  navigationBarItem(String unselected, String selected, String label) => BottomNavigationBarItem(
+  navigationBarItem(String unselected, String selected, String label) =>
+      BottomNavigationBarItem(
         label: label,
         icon: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 3),
           child: SvgPicture.asset(
             unselected,
-            colorFilter: ColorFilter.mode(Get.isDarkMode ? Colors.white.withValues(alpha: 0.7) : Color(0xff111111).withValues(alpha: 0.7), BlendMode.srcIn),
+            colorFilter: ColorFilter.mode(
+                Get.isDarkMode
+                    ? Colors.white.withValues(alpha: 0.7)
+                    : Color(0xff111111).withValues(alpha: 0.7),
+                BlendMode.srcIn),
           ),
         ),
         activeIcon: Container(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 3),
-          decoration: BoxDecoration(color: Color(0xffffaabb).withValues(alpha: 0.14), borderRadius: BorderRadius.circular(16)),
+          decoration: BoxDecoration(
+              color: Color(0xffffaabb).withValues(alpha: 0.14),
+              borderRadius: BorderRadius.circular(16)),
           child: SvgPicture.asset(
             selected,
             colorFilter: ColorFilter.mode(Colors.red, BlendMode.srcIn),
@@ -76,6 +88,12 @@ extension HomeWidgets on HomeView {
   tabBody(BuildContext context) => PageView(
         controller: controller.pageController,
         physics: const NeverScrollableScrollPhysics(),
-        children: [TabHomeView(), TabShortsView(), TabSearchView(), TabSubsView(), TabLibraryView()],
+        children: [
+          TabHomeView(),
+          TabShortsView(),
+          TabSearchView(),
+          TabSubsView(),
+          TabLibraryView()
+        ],
       );
 }
