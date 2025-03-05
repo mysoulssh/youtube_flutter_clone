@@ -33,7 +33,25 @@ class Assets {
     "https://tse3-mm.cn.bing.net/th/id/OIP-C.w0qVy3DxAEkqUchOzqgGowHaHa?w=197&h=197&c=7&r=0&o=5&dpr=2&pid=1.7"
   ];
 
-  static randomAvatar() => Random().nextInt(testAvatars.length);
+  static final testFilms = [
+    "https://tse3-mm.cn.bing.net/th/id/OIP-C.Rt909r6A2q9N0hr-Elu_AgHaDb?w=335&h=161&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse2-mm.cn.bing.net/th/id/OIP-C.dxB2y0OnJslTO1mMY3TYkQHaFj?w=257&h=192&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse1-mm.cn.bing.net/th/id/OIP-C.SMY4hVIOagrN-A3ACtEHnwHaDa?w=307&h=161&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse4-mm.cn.bing.net/th/id/OIP-C.RGU_I6df08aVKPUn1M6ewQHaEK?w=315&h=180&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse2-mm.cn.bing.net/th/id/OIP-C._r3y3e-UP3XVThSmqTgZRAHaKn?w=196&h=282&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse1-mm.cn.bing.net/th/id/OIP-C.YZB3JJjFBlzJN1IS1kZSbAHaDZ?w=196&h=90&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse1-mm.cn.bing.net/th/id/OIP-C.gF8fjeGB6M-5X63yAyHP6gHaEO?w=196&h=112&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse3-mm.cn.bing.net/th/id/OIP-C.mU5_jPTF7TMq7mSjnwWrAwHaEX?w=196&h=116&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse3-mm.cn.bing.net/th/id/OIP-C.LMSBPjN590oweJXrlUJAWAHaEK?w=196&h=110&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse4-mm.cn.bing.net/th/id/OIP-C.PKL5afTu0B0RbGuaJ51RFAHaFJ?w=196&h=136&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse3-mm.cn.bing.net/th/id/OIP-C.sBc1x_cap0R9AZjm_9GWIgHaEK?w=196&h=110&c=7&r=0&o=5&dpr=2&pid=1.7",
+    "https://tse2-mm.cn.bing.net/th/id/OIP-C.SrBUBdHEsgANzP00QAdr9wHaEK?w=196&h=110&c=7&r=0&o=5&dpr=2&pid=1.7"
+  ];
+
+  static String randomFilm() => testFilms[Random().nextInt(testFilms.length)];
+
+  static String randomAvatar() =>
+      testAvatars[Random().nextInt(testAvatars.length)];
 
   static final homeUnselected = "assets/images/home_unselected.svg";
   static final homeSelected = "assets/images/home_selected.svg";
@@ -57,4 +75,5 @@ class Assets {
   static final appbarYoutube = "assets/images/appbar_youtube.svg";
 
   static final homeFilter = "assets/images/home_filter.svg";
+  static final homeMore = "assets/images/home_more.svg";
 }
