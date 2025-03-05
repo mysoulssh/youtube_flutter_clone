@@ -16,6 +16,10 @@ class LocaleKeys {
   static const tabSearch = 'tabSearch';
   static const tabSubs = 'tabSubs';
   static const tabLibrary = 'tabLibrary';
+  static const libHistory = 'libHistory';
+  static const libFavorites = 'libFavorites';
+  static const libLikes = 'libLikes';
+  static const libViewAll = 'libViewAll';
 }
 
 class Locales {
@@ -25,6 +29,10 @@ class Locales {
     'tabSearch': '搜索',
     'tabSubs': '订阅',
     'tabLibrary': '浏览库',
+    'libHistory': '浏览记录',
+    'libFavorites': '最爱',
+    'libLikes': '点赞',
+    'libViewAll': '全部',
   };
   static const en_US = {
     'tabHome': 'Home',
@@ -32,5 +40,9 @@ class Locales {
     'tabSearch': 'Search',
     'tabSubs': 'Subs',
     'tabLibrary': 'Library',
+    'libHistory': 'History',
+    'libFavorites': 'Favorites',
+    'libLikes': 'Liked Video',
+    'libViewAll': 'View all',
   };
 }

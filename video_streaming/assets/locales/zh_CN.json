@@ -3,5 +3,10 @@
     "tabShorts": "时刻",
     "tabSearch": "搜索",
     "tabSubs": "订阅",
-    "tabLibrary": "浏览库"
+    "tabLibrary": "浏览库",
+
+    "libHistory":"浏览记录",
+    "libFavorites": "最爱",
+    "libLikes": "点赞",
+    "libViewAll": "全部"
 }

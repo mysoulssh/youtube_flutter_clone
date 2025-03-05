@@ -30,7 +30,7 @@ class TabHomeView extends GetView<TabHomeController> {
 extension TabHomeSubsView on TabHomeView {
   subscriptionUsers() => SliverToBoxAdapter(
         child: Padding(
-          padding: EdgeInsets.only(top: 12),
+          padding: EdgeInsets.only(top: 12, bottom: 12),
           child: SizedBox(
             height: 56.w + 26,
             child: GridView.builder(
@@ -51,10 +51,7 @@ extension TabHomeSubsView on TabHomeView {
                       height: 56.w,
                       alignment: Alignment.bottomRight,
                       decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: Image.network(Assets.testAvatars[index])
-                                  .image,
-                              fit: BoxFit.cover),
+                          image: DecorationImage(image: Image.network(Assets.testAvatars[index]).image, fit: BoxFit.cover),
                           borderRadius: BorderRadius.circular(56.w / 2)),
                       child: RedDot(),
                     ),
@@ -93,14 +90,10 @@ extension TabHomeCategoryView on TabHomeView {
               controller: controller.categoryScrollController,
               scrollDirection: Axis.horizontal,
               child: Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 16.w - 4, vertical: 8),
+                padding: EdgeInsets.symmetric(horizontal: 16.w - 4, vertical: 8),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
-                    for (int i = 0; i <= Assets.testCategories.length; i++)
-                      categoryItem(context, i)
-                  ],
+                  children: [for (int i = 0; i <= Assets.testCategories.length; i++) categoryItem(context, i)],
                 ),
               ),
             ),
@@ -127,9 +120,7 @@ extension TabHomeCategoryView on TabHomeView {
         padding: EdgeInsets.symmetric(horizontal: 4),
         child: CustomElevateButton(
             padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-            backgroundColor: controller.rxcategoryIndex.value == index
-                ? Colors.white
-                : Colors.white.withValues(alpha: 0.14),
+            backgroundColor: controller.rxcategoryIndex.value == index ? Colors.white : Colors.white.withValues(alpha: 0.14),
             minimumSize: Size(48, 32),
             radius: 8,
             onPressed: () => controller.categoryItemClicked(index - 1),
@@ -137,9 +128,7 @@ extension TabHomeCategoryView on TabHomeView {
               Assets.testCategories[index - 1],
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w600,
-                    color: controller.rxcategoryIndex.value == index
-                        ? Colors.black
-                        : Colors.white,
+                    color: controller.rxcategoryIndex.value == index ? Colors.black : Colors.white,
                   ),
             )),
       ),
@@ -153,7 +142,7 @@ extension TabHomeListView on TabHomeView {
       itemCount: 10,
       itemBuilder: (context, index) {
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 18),
+          margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10),
           child: InkWell(
             onTap: () {},
             child: Column(
@@ -161,12 +150,19 @@ extension TabHomeListView on TabHomeView {
                 AspectRatio(
                   aspectRatio: 375 / 209,
                   child: Container(
+                    alignment: Alignment.bottomRight,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image:
-                                CachedNetworkImageProvider(Assets.randomFilm()),
-                            fit: BoxFit.cover),
+                        image: DecorationImage(image: CachedNetworkImageProvider(Assets.randomFilm()), fit: BoxFit.cover),
                         borderRadius: BorderRadius.circular(8)),
+                    child: Container(
+                      margin: EdgeInsets.all(10),
+                      padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                      decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.6), borderRadius: BorderRadius.circular(6)),
+                      child: Text(
+                        "12:09",
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),
+                      ),
+                    ),
                   ),
                 ),
                 Padding(
@@ -182,10 +178,7 @@ extension TabHomeListView on TabHomeView {
                           width: 30,
                           height: 30,
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: CachedNetworkImageProvider(
-                                    Assets.randomAvatar()),
-                                fit: BoxFit.cover),
+                            image: DecorationImage(image: CachedNetworkImageProvider(Assets.randomAvatar()), fit: BoxFit.cover),
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
@@ -200,47 +193,33 @@ extension TabHomeListView on TabHomeView {
                             Text(
                               fk.faker.conference.name(),
                               maxLines: 2,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(fontWeight: FontWeight.bold),
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(
                               height: 8,
                             ),
-                            Text.rich(TextSpan(
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelMedium
-                                    ?.copyWith(color: Colors.white70),
-                                children: [
-                                  TextSpan(text: fk.faker.person.name()),
-                                  WidgetSpan(
-                                      alignment: ui.PlaceholderAlignment.middle,
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 4),
-                                        child: Icon(
-                                          Icons.verified,
-                                          size: 11,
-                                          color: Colors.white70,
-                                        ),
-                                      )),
-                                  TextSpan(
-                                      text:
-                                          "· ${fk.faker.randomGenerator.numbers(999, 1).first}K views · "),
-                                  TextSpan(
-                                      text: DateFormat.yMMMd().format(
-                                          fk.faker.date.dateTime(
-                                              minYear: 2024, maxYear: 2025)))
-                                ]))
+                            Text.rich(TextSpan(style: Theme.of(context).textTheme.labelMedium?.copyWith(color: Colors.white70), children: [
+                              TextSpan(text: fk.faker.person.name()),
+                              WidgetSpan(
+                                  alignment: ui.PlaceholderAlignment.middle,
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                                    child: Icon(
+                                      Icons.verified,
+                                      size: 11,
+                                      color: Colors.white70,
+                                    ),
+                                  )),
+                              TextSpan(text: "· ${fk.faker.randomGenerator.numbers(999, 1).first}K views · "),
+                              TextSpan(text: DateFormat.yMMMd().format(fk.faker.date.dateTime(minYear: 2024, maxYear: 2025)))
+                            ]))
                           ],
                         ),
                       ),
                       CustomElevateButton(
                           padding: EdgeInsets.zero,
                           minimumSize: Size(30, 30),
-                          backgroundColor: Colors.transparent,
+                          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                           onPressed: () {},
                           child: SvgPicture.asset(Assets.homeMore))
                     ],
@@ -268,8 +247,7 @@ class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
   });
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return SizedBox.expand(child: child);
   }
 
@@ -281,8 +259,6 @@ class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(_StickyHeaderDelegate oldDelegate) {
-    return maxHeight != oldDelegate.maxHeight ||
-        minHeight != oldDelegate.minHeight ||
-        child != oldDelegate.child;
+    return maxHeight != oldDelegate.maxHeight || minHeight != oldDelegate.minHeight || child != oldDelegate.child;
   }
 }

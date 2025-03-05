@@ -3,5 +3,10 @@
     "tabShorts": "Shorts",
     "tabSearch": "Search",
     "tabSubs": "Subs",
-    "tabLibrary": "Library"
+    "tabLibrary": "Library",
+
+    "libHistory":"History",
+    "libFavorites": "Favorites",
+    "libLikes": "Liked Video",
+    "libViewAll": "View all"
 }
