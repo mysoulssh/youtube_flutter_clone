@@ -1,12 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class TabShortsController extends GetxController {
   //TODO: Implement TabShortsController
 
   final count = 0.obs;
+  late PageController pageController;
+
   @override
   void onInit() {
     super.onInit();
+
+    pageController = PageController();
   }
 
   @override
@@ -16,6 +21,7 @@ class TabShortsController extends GetxController {
 
   @override
   void onClose() {
+    pageController.dispose();
     super.onClose();
   }
 

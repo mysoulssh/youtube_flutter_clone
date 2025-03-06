@@ -76,4 +76,16 @@ class Assets {
 
   static final homeFilter = "assets/images/home_filter.svg";
   static final homeMore = "assets/images/home_more.svg";
+
+  static final shortDislikeSelected =
+      "assets/images/short_dislike_selected.svg";
+  static final shortDislikeUnselected =
+      "assets/images/short_dislike_unselected.svg";
+  static final shortLikeSelected = "assets/images/short_like_selected.svg";
+  static final shortLikeUnselected = "assets/images/short_like_unselected.svg";
+
+  static final videoLikeUnselected = "assets/images/video_like_selected.svg";
+  static final videoLikeSelected = "assets/images/video_like_unselected.svg";
+  static final videoComments = "assets/images/video_comments.svg";
+  static final videoShare = "assets/images/video_share.svg";
 }

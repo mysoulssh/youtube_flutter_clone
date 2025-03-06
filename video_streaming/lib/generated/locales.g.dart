@@ -20,6 +20,7 @@ class LocaleKeys {
   static const libFavorites = 'libFavorites';
   static const libLikes = 'libLikes';
   static const libViewAll = 'libViewAll';
+  static const subscribe = 'subscribe';
 }
 
 class Locales {
@@ -33,6 +34,7 @@ class Locales {
     'libFavorites': '最爱',
     'libLikes': '点赞',
     'libViewAll': '全部',
+    'subscribe': '订阅',
   };
   static const en_US = {
     'tabHome': 'Home',
@@ -44,5 +46,6 @@ class Locales {
     'libFavorites': 'Favorites',
     'libLikes': 'Liked Video',
     'libViewAll': 'View all',
+    'subscribe': 'Subscribe',
   };
 }

@@ -21,7 +21,10 @@ class Themes {
   static ThemeData darkTheme() => ThemeData.dark().copyWith(
         scaffoldBackgroundColor: darkBackgroundColor,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            enableFeedback: false, selectedItemColor: Colors.white, unselectedItemColor: Colors.white70, backgroundColor: darkTabBackgroundColor),
+            enableFeedback: false,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white70,
+            backgroundColor: darkTabBackgroundColor),
         textTheme: GoogleFonts.robotoTextTheme(ThemeData.dark().textTheme),
       );
 }

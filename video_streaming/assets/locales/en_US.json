@@ -4,9 +4,9 @@
     "tabSearch": "Search",
     "tabSubs": "Subs",
     "tabLibrary": "Library",
-
-    "libHistory":"History",
+    "libHistory": "History",
     "libFavorites": "Favorites",
     "libLikes": "Liked Video",
-    "libViewAll": "View all"
+    "libViewAll": "View all",
+    "subscribe": "Subscribe"
 }
