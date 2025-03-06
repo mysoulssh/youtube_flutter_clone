@@ -10,6 +10,7 @@ abstract class Routes {
   static const TAB_SUBS = _Paths.TAB_SUBS;
   static const TAB_LIBRARY = _Paths.TAB_LIBRARY;
   static const TOP_NAVIGATOR = _Paths.TOP_NAVIGATOR;
+  static const VIDEO_PLAY = _Paths.VIDEO_PLAY;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const TAB_SUBS = '/tab-subs';
   static const TAB_LIBRARY = '/tab-library';
   static const TOP_NAVIGATOR = '/top-navigator';
+  static const VIDEO_PLAY = '/video-play';
 }

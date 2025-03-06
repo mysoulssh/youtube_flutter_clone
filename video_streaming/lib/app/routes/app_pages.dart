@@ -12,6 +12,8 @@ import '../modules/tab_shorts/bindings/tab_shorts_binding.dart';
 import '../modules/tab_shorts/views/tab_shorts_view.dart';
 import '../modules/tab_subs/bindings/tab_subs_binding.dart';
 import '../modules/tab_subs/views/tab_subs_view.dart';
+import '../modules/video_play/bindings/video_play_binding.dart';
+import '../modules/video_play/views/video_play_view.dart';
 
 part 'app_routes.dart';
 
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.TAB_LIBRARY,
       page: () => const TabLibraryView(),
       binding: TabLibraryBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIDEO_PLAY,
+      page: () => const VideoPlayView(),
+      binding: VideoPlayBinding(),
     ),
   ];
 }

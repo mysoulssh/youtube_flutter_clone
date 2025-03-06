@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:video_streaming/app/routes/app_pages.dart';
 import 'package:video_streaming/app/utils/assets.dart';
 import 'package:video_streaming/app/widgets/custom_elevate_button.dart';
 
@@ -17,7 +19,9 @@ class VideoItem extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Get.toNamed(Routes.VIDEO_PLAY);
+        },
         child: Column(
           children: [
             AspectRatio(
