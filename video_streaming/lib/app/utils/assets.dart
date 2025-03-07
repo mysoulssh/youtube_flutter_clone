@@ -84,8 +84,8 @@ class Assets {
   static final shortLikeSelected = "assets/images/short_like_selected.svg";
   static final shortLikeUnselected = "assets/images/short_like_unselected.svg";
 
-  static final videoLikeUnselected = "assets/images/video_like_selected.svg";
-  static final videoLikeSelected = "assets/images/video_like_unselected.svg";
+  static final videoLikeUnselected = "assets/images/video_like_unselected.svg";
+  static final videoLikeSelected = "assets/images/video_like_selected.svg";
   static final videoComments = "assets/images/video_comments.svg";
   static final videoShare = "assets/images/video_share.svg";
 }

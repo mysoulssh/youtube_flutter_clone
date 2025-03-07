@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,8 +52,8 @@ extension TabSubsSubsView on TabSubsView {
                       alignment: Alignment.bottomRight,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: Image.network(Assets.testAvatars[index])
-                                  .image,
+                              image: CachedNetworkImageProvider(
+                                  Assets.testAvatars[index]),
                               fit: BoxFit.cover),
                           borderRadius: BorderRadius.circular(56.w / 2)),
                       child: RedDot(),

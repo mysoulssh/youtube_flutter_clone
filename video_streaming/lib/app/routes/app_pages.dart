@@ -64,6 +64,6 @@ class AppPages {
       name: _Paths.VIDEO_PLAY,
       page: () => const VideoPlayView(),
       binding: VideoPlayBinding(),
-    ),
+    )
   ];
 }
