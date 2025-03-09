@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class VideoPlayController extends GetxController with WidgetsBindingObserver {
@@ -10,6 +11,11 @@ class VideoPlayController extends GetxController with WidgetsBindingObserver {
     super.onInit();
 
     WidgetsBinding.instance.addObserver(this);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
   }
 
   @override
@@ -20,16 +26,19 @@ class VideoPlayController extends GetxController with WidgetsBindingObserver {
   @override
   void onClose() {
     WidgetsBinding.instance.removeObserver(this);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
 
     super.onClose();
   }
 
   @override
   void didChangeMetrics() {
+    super.didChangeMetrics();
+
     rxorientation.value = MediaQuery.of(Get.context!).orientation;
     debugPrint("orientation = ${rxorientation.value}");
-
-    super.didChangeMetrics();
   }
 
   void increment() => count.value++;
