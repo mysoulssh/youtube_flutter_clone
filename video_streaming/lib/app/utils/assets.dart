@@ -88,4 +88,25 @@ class Assets {
   static final videoLikeSelected = "assets/images/video_like_selected.svg";
   static final videoComments = "assets/images/video_comments.svg";
   static final videoShare = "assets/images/video_share.svg";
+
+  static final arrowDown = "assets/images/arrow_down.svg";
+  static final arrowLeft = "assets/images/arrow_left.svg";
+  static final arrowRight = "assets/images/arrow_right.svg";
+  static final arrowUp = "assets/images/arrow_up.svg";
+
+  static final videoFullscreenSelected =
+      "assets/images/video_fullscreen_selected.svg";
+  static final videoFullscreenUnselected =
+      "assets/images/video_fullscreen_unselected.svg";
+
+  static final videoNext = "assets/images/video_next.svg";
+  static final videoPlay = "assets/images/video_play.svg";
+
+  static final videoQuality4K = "assets/images/video_quality_4k.svg";
+  static final videoQuality144p = "assets/images/video_quality_144k.svg";
+  static final videoQuality240p = "assets/images/video_quality_240k.svg";
+  static final videoQuality360p = "assets/images/video_quality_360k.svg";
+  static final videoQuality480p = "assets/images/video_quality_480k.svg";
+  static final videoQuality720p = "assets/images/video_quality_720k.svg";
+  static final videoQualityHD = "assets/images/video_quality_hd.svg";
 }

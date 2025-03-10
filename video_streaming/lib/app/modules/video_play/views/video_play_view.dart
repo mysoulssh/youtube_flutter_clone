@@ -19,7 +19,8 @@ class VideoPlayView extends GetView<VideoPlayController> {
   const VideoPlayView({super.key});
   @override
   Widget build(BuildContext context) {
-    debugPrint("landscape = ${MediaQuery.of(context).orientation == Orientation.landscape}");
+    debugPrint(
+        "${controller.count.value}, ${MediaQuery.of(context).orientation}");
 
     return Scaffold(
       body: SafeArea(
@@ -27,20 +28,30 @@ class VideoPlayView extends GetView<VideoPlayController> {
           children: [
             Column(
               children: [
-                Obx(() {
-                  if (controller.rxorientation.value == Orientation.landscape) {
-                    return Container();
-                  }
-                  return AspectRatio(
-                    aspectRatio: 390 / 209,
-                    child: Container(),
-                  );
-                }),
+                OrientationBuilder(
+                  builder: (context, orientation) {
+                    if (MediaQuery.of(context).orientation ==
+                        Orientation.landscape) {
+                      return Container();
+                    }
+                    return AspectRatio(
+                      aspectRatio: 390 / 209,
+                      child: Container(),
+                    );
+                  },
+                ),
                 Expanded(
-                  child: Obx(() => Opacity(
-                        opacity: controller.rxorientation.value == Orientation.landscape ? 0.0 : 1.0,
+                  child: OrientationBuilder(
+                    builder: (context, orientation) {
+                      return Opacity(
+                        opacity: MediaQuery.of(context).orientation ==
+                                Orientation.landscape
+                            ? 0.0
+                            : 1.0,
                         child: videoPlayInfoView(context),
-                      )),
+                      );
+                    },
+                  ),
                 )
               ],
             ),
@@ -73,7 +84,8 @@ extension VideoPlayInfoView on VideoPlayView {
                 children: [
                   Text(
                     faker.conference.name(),
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.w600, color: Colors.white),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 12),
@@ -108,7 +120,8 @@ extension VideoPlayInfoView on VideoPlayView {
                         width: 4,
                       ),
                       Text(
-                        DateFormat.yMMMd().format(faker.date.dateTime(minYear: 2024, maxYear: 2025)),
+                        DateFormat.yMMMd().format(
+                            faker.date.dateTime(minYear: 2024, maxYear: 2025)),
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
@@ -125,7 +138,10 @@ extension VideoPlayInfoView on VideoPlayView {
                             width: 30,
                             height: 30,
                             decoration: BoxDecoration(
-                              image: DecorationImage(image: CachedNetworkImageProvider(Assets.randomAvatar()), fit: BoxFit.cover),
+                              image: DecorationImage(
+                                  image: CachedNetworkImageProvider(
+                                      Assets.randomAvatar()),
+                                  fit: BoxFit.cover),
                               borderRadius: BorderRadius.circular(15),
                             ),
                           ),
@@ -135,7 +151,12 @@ extension VideoPlayInfoView on VideoPlayView {
                         ),
                         Text(
                           faker.person.name(),
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 8),
@@ -153,7 +174,10 @@ extension VideoPlayInfoView on VideoPlayView {
                             onPressed: () {},
                             child: Text(
                               LocaleKeys.subscribe,
-                              style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(fontWeight: FontWeight.w600),
                             ))
                       ],
                     ),
@@ -162,28 +186,39 @@ extension VideoPlayInfoView on VideoPlayView {
                     children: [
                       Container(
                         height: 40,
-                        decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(30)),
+                        decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.1),
+                            borderRadius: BorderRadius.circular(30)),
                         child: Row(
                           children: [
                             CustomElevateButton(
-                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 2),
                                 minimumSize: Size(40, 40),
-                                backgroundColor: Colors.white.withValues(alpha: 0.01),
+                                backgroundColor:
+                                    Colors.white.withValues(alpha: 0.01),
                                 onPressed: () {},
                                 child: Row(
                                   children: [
-                                    SvgPicture.asset(Assets.videoLikeUnselected),
+                                    SvgPicture.asset(
+                                        Assets.videoLikeUnselected),
                                     SizedBox(
                                       width: 4,
                                     ),
                                     Text(
                                       "${faker.randomGenerator.numbers(99, 1).first}K",
-                                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600),
                                     ),
                                   ],
                                 )),
                             Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 1, vertical: 10),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 1, vertical: 10),
                               child: Container(
                                 width: 1,
                                 height: double.infinity,
@@ -191,19 +226,27 @@ extension VideoPlayInfoView on VideoPlayView {
                               ),
                             ),
                             CustomElevateButton(
-                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 2),
                                 minimumSize: Size(40, 40),
-                                backgroundColor: Colors.white.withValues(alpha: 0.01),
+                                backgroundColor:
+                                    Colors.white.withValues(alpha: 0.01),
                                 onPressed: () {},
                                 child: Row(
                                   children: [
-                                    SvgPicture.asset(Assets.shortDislikeUnselected),
+                                    SvgPicture.asset(
+                                        Assets.shortDislikeUnselected),
                                     SizedBox(
                                       width: 4,
                                     ),
                                     Text(
                                       "${faker.randomGenerator.numbers(99, 1).first}K",
-                                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600),
                                     ),
                                   ],
                                 ))
@@ -214,9 +257,11 @@ extension VideoPlayInfoView on VideoPlayView {
                       SizedBox(
                         height: 40,
                         child: CustomElevateButton(
-                            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 2),
                             minimumSize: Size(40, 40),
-                            backgroundColor: Colors.white.withValues(alpha: 0.1),
+                            backgroundColor:
+                                Colors.white.withValues(alpha: 0.1),
                             onPressed: () {},
                             child: Row(
                               children: [
@@ -226,7 +271,12 @@ extension VideoPlayInfoView on VideoPlayView {
                                 ),
                                 Text(
                                   "${faker.randomGenerator.numbers(99, 1).first}K",
-                                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600),
                                 ),
                               ],
                             )),
@@ -237,9 +287,11 @@ extension VideoPlayInfoView on VideoPlayView {
                       SizedBox(
                         height: 40,
                         child: CustomElevateButton(
-                            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 2),
                             minimumSize: Size(40, 40),
-                            backgroundColor: Colors.white.withValues(alpha: 0.1),
+                            backgroundColor:
+                                Colors.white.withValues(alpha: 0.1),
                             onPressed: () {},
                             child: SvgPicture.asset(Assets.videoShare)),
                       )
@@ -250,7 +302,8 @@ extension VideoPlayInfoView on VideoPlayView {
                   ),
                   Text(
                     "Up Next:",
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w600, color: Colors.white),
                   )
                 ],
               ),
