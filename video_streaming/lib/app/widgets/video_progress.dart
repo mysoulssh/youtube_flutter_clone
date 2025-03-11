@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:video_streaming/app/utils/extensions.dart';
 
 class VideoProgress extends StatefulWidget {
-  const VideoProgress({super.key});
+  final Color progressColor;
+  final Color backgroundColor;
+
+  const VideoProgress(
+      {super.key,
+      this.progressColor = Colors.white24,
+      this.backgroundColor = Colors.white10});
 
   @override
   State<VideoProgress> createState() => _VideoProgressState();
@@ -21,9 +26,9 @@ class _VideoProgressState extends State<VideoProgress> {
   @override
   Widget build(BuildContext context) {
     return LinearProgressIndicator(
-      backgroundColor: CColors.colorffffff5,
+      backgroundColor: widget.backgroundColor,
       value: progress,
-      valueColor: AlwaysStoppedAnimation(Colors.white24),
+      valueColor: AlwaysStoppedAnimation(widget.progressColor),
     );
   }
 }

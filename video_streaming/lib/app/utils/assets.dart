@@ -103,10 +103,10 @@ class Assets {
   static final videoPlay = "assets/images/video_play.svg";
 
   static final videoQuality4K = "assets/images/video_quality_4k.svg";
-  static final videoQuality144p = "assets/images/video_quality_144k.svg";
-  static final videoQuality240p = "assets/images/video_quality_240k.svg";
-  static final videoQuality360p = "assets/images/video_quality_360k.svg";
-  static final videoQuality480p = "assets/images/video_quality_480k.svg";
-  static final videoQuality720p = "assets/images/video_quality_720k.svg";
+  static final videoQuality144p = "assets/images/video_quality_144p.svg";
+  static final videoQuality240p = "assets/images/video_quality_240p.svg";
+  static final videoQuality360p = "assets/images/video_quality_360p.svg";
+  static final videoQuality480p = "assets/images/video_quality_480p.svg";
+  static final videoQuality720p = "assets/images/video_quality_720p.svg";
   static final videoQualityHD = "assets/images/video_quality_hd.svg";
 }

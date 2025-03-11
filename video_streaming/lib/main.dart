@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       title: "Application",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
-      // themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.dark,
       theme: Themes.theme(),
       darkTheme: Themes.darkTheme(),
       translationsKeys: AppTranslation.translations,

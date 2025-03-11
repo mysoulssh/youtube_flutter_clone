@@ -27,12 +27,13 @@ class HomeView extends GetView<HomeController> {
           data: Theme.of(context).copyWith(
             // splashFactory: CustomInkRippleFactory(rippleRadius: 30),
             splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
           ),
           child: Obx(
             () => BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
-              selectedFontSize: 14,
-              unselectedFontSize: 14,
+              selectedFontSize: 12,
+              unselectedFontSize: 12,
               currentIndex: controller.rxcurrentIndex.value,
               onTap: (value) {
                 controller.rxcurrentIndex.value = value;
