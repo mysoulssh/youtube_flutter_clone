@@ -18,3 +18,9 @@ This is a YouTube app clone developed using the Flutter framework. The project a
 - **Getx**: State management library for managing application state and data flow.
 
 ## Preview
+![Preview](https://github.com/mysoulssh/video_streaming/blob/main/preview/1742267998298.jpg)
+![Preview](https://github.com/mysoulssh/video_streaming/blob/main/preview/1742268058339.jpg)
+![Preview](https://github.com/mysoulssh/video_streaming/blob/main/preview/1742268097754.jpg)
+![Preview](https://github.com/mysoulssh/video_streaming/blob/main/preview/1742268146572.jpg)
+![Preview](https://github.com/mysoulssh/video_streaming/blob/main/preview/1742268184715.jpg)
+![Preview](https://github.com/mysoulssh/video_streaming/blob/main/preview/1742268217762.jpg)
