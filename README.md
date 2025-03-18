@@ -1,10 +1,20 @@
-### App Title:  
-**Selvio – Where Desires Connect**  
+# Flutter YouTube Clone
 
-### App Tagline:  
-**"Discover, share, and indulge in captivating moments."**  
+## Project Overview
 
-### App Description:  
-Selvio is a unique platform where creators and enthusiasts come together to share exclusive, captivating videos. Dive into a world of personalized subscriptions, explore mesmerizing content, and connect with a community that celebrates bold expression. Whether you’re here to showcase your creativity or to enjoy curated moments, Selvio offers a seamless, elegant experience tailored to your desires.  
+This is a YouTube app clone developed using the Flutter framework. The project aims to demonstrate how to build a feature-rich, high-performance cross-platform application with Flutter. We have not only replicated YouTube's core features but also made modifications and optimizations to provide a better user experience.
 
-Unveil. Connect. Experience Selvio.
+## Key Features
+
+- **Video Playback**: Supports smooth video playback, including full-screen mode and picture-in-picture mode.
+- **Search Functionality**: Powerful search feature with real-time suggestions and paginated search results.
+- **User Interface**: Highly replicates YouTube's UI design while incorporating some custom improvements.
+- **Personalized Recommendations**: A personalized video recommendation system based on user watch history.
+
+## Tech Stack
+
+- **Flutter**: UI framework for building cross-platform applications.
+- **Dart**: The programming language for Flutter, offering robust support for asynchronous programming.
+- **Getx**: State management library for managing application state and data flow.
+
+## Preview
